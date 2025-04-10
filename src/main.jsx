@@ -9,4 +9,4 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 
-import './styles/style.css';
+import './styles/Login.css';

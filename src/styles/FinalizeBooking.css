@@ -1,0 +1,430 @@
+/***** Finalize Booking Page Container *****/
+.finalize-booking-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  font-family: 'Inter', sans-serif;
+  color: #230F32;
+}
+
+/***** Banner Image *****/
+.finalize-banner {
+  width: 762px;
+  height: 154px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  background: url("../assets/banner.jpeg") lightgray 50% / cover no-repeat;
+}
+
+/***** Title *****/
+.finalize-title {
+  color: #230F32;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  margin-top: 24px;
+}
+
+/***** Selected Info Row (Date, Time, People) *****/
+.selected-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: 400;
+  color: #000;
+}
+.info-item .icon {
+  font-size: 20px;
+  color: #000;
+}
+
+/***** Holding Table Note with Timer *****/
+.holding-note {
+  display: flex;
+  width: 600px;
+  height: 61.5px;
+  padding: 0 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #EAFEFF;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+  text-align: center;
+  box-sizing: border-box;
+}
+.holding-note p {
+  margin: 0;
+}
+
+/***** Logout Line *****/
+.logout-line {
+  text-align: center;
+  font-size: 18px;
+  color: #230F32;
+  margin-top: 20px;
+}
+.logout-line a,
+.logout-link {
+  color: #32A4A8;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/***** Main Content Container *****/
+.finalize-content {
+  width: 762px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+/***** Row Layouts with Custom Gaps *****/
+.contact-info,
+.occasion-allergy,
+.card-info-1 {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.card-info-2 {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/***** Field Containers *****/
+.finalize-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+.finalize-field label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #230F32;
+}
+
+/***** Inputs & Selects *****/
+.finalize-field input,
+.finalize-field select {
+  display: flex;
+  width: 360px;
+  height: 61.5px;
+  padding: 20px;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid #B3B3B3;
+  background: #FFF;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  color: #230F32;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/***** Short Input Sizing (Expiry, CVC, Postcode) *****/
+.finalize-expiry input,
+.finalize-cvc input,
+.finalize-postcode input {
+  width: 240px;
+  height: 61.5px;
+}
+
+/***** Finalize Button *****/
+.finalize-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #32A4A8;
+  color: #FFF;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+}
+.finalize-button:hover {
+  background-color: #289297;
+}
+/* Styling for disabled button */
+.finalize-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/***** Expired Modal Overlay *****/
+.expired-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+.expired-modal {
+  background: #FFF;
+  padding: 24px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.expired-modal h2 {
+  font-size: 20px;
+  color: #230F32;
+  margin-bottom: 10px;
+}
+.expired-modal p {
+  font-size: 14px;
+  color: #230F32;
+  margin-bottom: 20px;
+}
+.expired-button {
+  padding: 12px 24px;
+  background-color: #32A4A8;
+  color: #FFF;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+}
+.expired-button:hover {
+  background-color: #289297;
+}
+
+/***** Login Modal Styles *****/
+.login-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+.login-modal {
+  position: relative;
+  background: #fff;
+  padding: 32px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  font-family: 'Inter', sans-serif;
+}
+.login-modal h2 {
+  margin-bottom: 20px;
+  color: #230F32;
+  font-size: 22px;
+}
+.login-modal input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border: 1.5px solid #B3B3B3;
+  border-radius: 8px;
+  outline: none;
+  background-color: #FFF;
+  color: #230F32;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+.login-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #32A4A8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.login-button:hover {
+  background-color: #289297;
+}
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #230F32;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/***** Modal Styles for Finalize Booking *****/
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.modal-content {
+  position: relative;
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  width: 320px;
+  text-align: center;
+}
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000;
+}
+.modal-close:hover {
+  opacity: 0.8;
+}
+.confirm-button {
+  margin-top: 16px;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2ca4a8;
+  color: #fff;
+  cursor: pointer;
+}
+.confirm-button:hover {
+  background-color: #2ca4a8;
+}
+.modal-message {
+  line-height: 1.6;
+  margin: 12px 0;
+}
+
+/***** Change Form Styling *****/
+.change-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+.change-form label {
+  font-size: 14px;
+  text-align: left;
+  color: #230F32;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.change-form input,
+.change-form select {
+  background-color: #fff;
+  color: #230F32;
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+/* Attempt to theme the native date picker icon for Chrome/Edge */
+.change-form input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(45%) sepia(53%) saturate(565%) hue-rotate(135deg)
+    brightness(98%) contrast(92%);
+}
+
+/***** Single Phone Input with Integrated Dropdown *****/
+.phone-single-input {
+  position: relative;
+  width: 360px;
+  height: 61.5px;
+  border: 1px solid #B3B3B3;
+  border-radius: 8px;
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  box-sizing: border-box;
+  cursor: text;
+}
+.phone-single-input input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  height: 100%;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: #230F32;
+  padding: 0;
+  margin: 0;
+}
+.dropdown-arrow {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+}
+.flag-dropdown {
+  position: absolute;
+  top: 61.5px;
+  left: 0;
+  width: 100%;
+  background: #FFF;
+  border: 1px solid #B3B3B3;
+  border-radius: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  box-sizing: border-box;
+  z-index: 999;
+}
+.flag-dropdown li {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: #230F32;
+}
+.flag-dropdown li:hover {
+  background: #f1f1f1;
+}

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import "../styles/style.css"; 
+import { useNavigate } from "react-router-dom";
+import "../styles/Login.css"; 
 import img1 from "../assets/img1.jpeg";
 import img2 from "../assets/img2.jpeg";
 import img3 from "../assets/img3.jpeg";
 import img4 from "../assets/img4.jpeg";
 
 function Login() {
+  const navigate = useNavigate();
+
   const [showModal, setShowModal] = useState(false);
   const [showCodeStep, setShowCodeStep] = useState(false);
   const [resetEmail, setResetEmail] = useState("");
@@ -13,7 +16,8 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    alert("Login clicked — backend coming soon 👀");
+    // ✅ Navigate to /booking instead of alert
+    navigate("/booking");
   };
 
   const handleOpenModal = (e) => {
@@ -36,6 +40,7 @@ function Login() {
     const masked = maskEmail(resetEmail);
     setMaskedEmail(masked);
     setShowCodeStep(true);
+    setResetEmail(""); // 🧼 Clears email field after code is sent
   };
 
   const maskEmail = (email) => {
