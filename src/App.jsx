@@ -1,54 +1,23 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Login';
+import Register from './components/Register';
+import Booking from './components/Booking';
+import FinalizeBooking from './components/FinalizeBooking';
+import ConfirmBooking from './components/ConfirmBooking'; 
 
-
-
-import React from "react";
-import ImageGrid from "./components/ImageGrid";
-import LoginForm from "./components/LoginForm";
-
-const RestaurantLogin = () => {
+function App() {
   return (
-    <main className="restaurant-login">
-      <h1 className="hero-heading">
-        Join us for an exquisite dining experience and reserve your spot at
-        Ormer Mayfair
-      </h1>
-
-      <ImageGrid />
-      <LoginForm />
-
-      <style jsx>{`
-        .restaurant-login {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 60px 20px;
-          font-family: "Inter", sans-serif;
-          max-width: 1440px;
-          margin: 0 auto;
-        }
-        .hero-heading {
-          color:rgb(0, 0, 0);
-          font-size: 64px;
-          font-weight: 700;
-          text-align: center;
-          max-width: 1382px;
-          margin: 0 0 60px 0;
-        }
-        @media (max-width: 991px) {
-          .hero-heading {
-            font-size: 48px;
-            margin-bottom: 40px;
-          }
-        }
-        @media (max-width: 640px) {
-          .hero-heading {
-            font-size: 32px;
-            margin-bottom: 30px;
-          }
-        }
-      `}</style>
-    </main>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/booking" element={<Booking />} />
+        <Route path="/finalizebooking" element={<FinalizeBooking />} />
+        <Route path="/confirm" element={<ConfirmBooking />} /> 
+      </Routes>
+    </Router>
   );
-};
+}
 
-export default RestaurantLogin;
+export default App;

@@ -1,0 +1,221 @@
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+  font-family: 'Inter', sans-serif;
+}
+
+.register-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #230F32;
+  margin-bottom: 8px;
+}
+
+.register-sub {
+  font-size: 14px;
+  color: #5f5f5f;
+  margin-bottom: 30px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 450px;
+  font-family: 'Inter', sans-serif;
+}
+
+.register-form label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #230F32;
+}
+
+.register-form input[type="text"]:not(.mobile-inner),
+.register-form input[type="email"],
+.register-form input[type="password"],
+.register-form input[type="tel"]:not(.mobile-inner) {
+  padding: 14px;
+  font-size: 16px;
+  border: 1.5px solid #B3B3B3;
+  border-radius: 8px;
+  outline: none;
+  background-color: #FFF;
+  color: #230F32;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Autofill fix */
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active {
+  box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: #230F32 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.mobile-input {
+  display: flex;
+  align-items: center;
+  background: #FFF;
+  padding: 12px;
+  gap: 10px;
+  border-radius: 8px;
+  border: 1.5px solid #B3B3B3;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.flag-select {
+  font-size: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+.flag-select:focus {
+  outline: none;
+}
+
+.country-code {
+  font-size: 16px;
+  font-weight: 500;
+  color: #230F32;
+}
+
+.mobile-inner {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+  color: #230F32;
+  font-family: 'Inter', sans-serif;
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: 1.5px solid #B3B3B3;
+  border-radius: 8px;
+  outline: none;
+  color: #230F32;
+  background-color: #FFF;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 14px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+  color: #6c6c6c;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border: 2px solid #32A4A8;
+  border-radius: 6px;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-wrapper input[type="checkbox"]::after {
+  content: "✔";
+  font-size: 12px;
+  color: #32A4A8;
+  font-weight: bold;
+  display: none;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked::after {
+  display: block;
+}
+
+.checkbox-label {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #230F32;
+  font-family: 'Inter', sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.checkbox-label .terms {
+  color: #32A4A8;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 5px;
+  font-size: inherit;
+
+
+  
+}
+
+.register-btn {
+  padding: 16px;
+  background-color: #32A4A8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+}
+
+.register-footer {
+  text-align: center;
+  margin-top: 10px;
+  color: #230F32;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+}
+
+.register-footer a {
+  color: #32A4A8;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Error message */
+.error {
+  color: #D32F2F;
+  font-size: 13px;
+  margin-top: 4px;
+  margin-bottom: -10px;
+}

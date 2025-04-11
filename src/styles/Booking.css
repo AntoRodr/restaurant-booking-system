@@ -1,0 +1,800 @@
+/***** Overall Layout *****/
+.booking-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Banner Image */
+.booking-banner-img {
+  display: block;
+  width: 1700px;
+  height: 286px;
+  margin: 0 auto 40px auto;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Restaurant Title */
+.restaurant-title {
+  width: 1700px;
+  margin: -10px auto 24px auto;
+  color: #230F32;
+  font-family: 'Inter', sans-serif;
+  font-size: 62px;
+  font-weight: 700;
+  text-align: left;
+}
+
+/* Restaurant Info Line */
+.restaurant-info-line {
+  width: 1700px;
+  margin: 8px auto 32px auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+}
+.stars {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.star.filled {
+  color: #32A4A8;
+  font-size: 20px;
+}
+.star.empty {
+  color: #B3B3B3;
+  font-size: 20px;
+}
+.info-icon {
+  font-size: 18px;
+  color: #000;
+}
+.info-text {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* Tabs and Booking Title Row */
+.tabs-and-booking-title {
+  width: 1700px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.booking-tabs {
+  display: flex;
+  gap: 16px;
+}
+.tab-button {
+  display: inline-flex;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  border: 1.5px solid #B3B3B3;
+  background: #FFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  color: #230F32;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.tab-button:hover {
+  background-color: #f1f1f1;
+}
+.tab-button.active {
+  background-color: #32A4A8;
+  color: #FFF;
+  border-color: #32A4A8;
+}
+
+/* Main Layout */
+.booking-layout {
+  width: 1700px;
+  margin: 0 auto 60px auto;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+.left-content {
+  flex: 1;
+}
+
+/* Booking Form Section (Right side) */
+.booking-form-section {
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 40px;
+}
+
+/* Booking Card (White Box) */
+.booking-card {
+  width: 540px;
+  min-height: 450px;
+  border: 1.5px solid #B3B3B3;
+  border-radius: 16px;
+  padding: 24px;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: 'Inter', sans-serif;
+  align-items: center;
+  position: relative;
+}
+
+/* "Make a booking" Title */
+.make-booking-title {
+  position: relative;
+  left: -813px;
+  top: -130px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Booking Form Container */
+.booking-form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: 'Inter', sans-serif;
+  align-items: center;
+}
+
+/* Booking Inputs Row */
+.booking-inputs-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  left: -800px;
+  top: -120px;
+}
+
+/* Booking Field (for Date, Time, People) */
+.booking-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1.5px solid #B3B3B3;
+  background-color: #FFF;
+}
+.booking-icon {
+  font-size: 20px;
+  color: #32A4A8;
+}
+.booking-input,
+.booking-select {
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 120px;
+  color: #230F32;
+}
+.booking-select option {
+  color: #230F32;
+  background: #FFF;
+}
+
+/* Custom Date Input Wrapper */
+.date-input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.calendar-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #32A4A8;
+}
+
+/* Check Availability Button */
+.check-availability-btn {
+  position: relative;
+  left: -815px;
+  top: -120px;
+  margin: 20px 0;
+  padding: 12px 24px;
+  background-color: #32A4A8;
+  color: #FFF;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* "Select a time" Label */
+.select-time-label {
+  position: relative;
+  left: -1017px;
+  top: -155px;
+  font-size: 16px;
+  color: #230F32;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+/* Time Buttons Row */
+.time-buttons-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 20px;
+  position: relative;
+  left: -787px;
+  top: -180px;
+  margin-bottom: 10px;
+}
+
+/* Time Slot Box */
+.time-slot {
+  height: 48px;
+  padding: 6px;
+  background: #EAFEFF;
+  border-radius: 12px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+.time-slot:hover {
+  background: #dff8f9;
+}
+.time-slot-label {
+  color: black;
+  font-size: 16px;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Selected Time Slot */
+.time-slot-selected {
+  background: #b2f0f4 !important;
+  border: 2px solid #32A4A8;
+}
+
+/* "Notify me" time slot button */
+.notify-btn {
+  background-color: #32A4A8 !important;
+  color: #FFF !important;
+}
+.notify-btn .time-slot-label {
+  color: #FFF !important;
+}
+.notify-btn .bell-icon {
+  color: #FFF !important;
+}
+
+/* Confirm Booking Button */
+.confirm-booking-btn {
+  position: relative;
+  left: -817px;
+  top: -190px;
+  width: auto;
+  padding: 12px 24px;
+  background-color: #32A4A8;
+  color: #FFF;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.confirm-booking-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* "100 Booked this week" Text */
+.booked-this-week {
+  position: relative;
+  left: -820px;
+  top: -170px;
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Tab Content Area */
+.tab-content {
+  width: 1700px;
+  margin: 0 auto 20px auto;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+}
+.tab-content-inner {
+  width: 775px;
+  text-align: left;
+  margin: 0;
+}
+
+/* Reviews Grid */
+.reviews-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+}
+.review-card {
+  width: 243px;
+  height: 163px;
+  border: 1.5px solid #B3B3B3;
+  border-radius: 8px;
+  background-color: #FFF;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.review-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 8px;
+}
+.review-text {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #230F32;
+}
+.review-author {
+  color: #888;
+  font-size: 14px;
+  align-self: flex-end;
+}
+
+/* Menu Grid */
+.menu-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.menu-card {
+  width: 243px;
+  height: 200px;
+  border: 1.5px solid #B3B3B3;
+  border-radius: 8px;
+  background-color: #FFF;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.menu-card-img {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.menu-card-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu-card-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #230F32;
+}
+.menu-card-desc {
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #555;
+}
+.menu-card-price {
+  font-size: 14px;
+  font-weight: 500;
+  color: #230F32;
+  align-self: flex-end;
+}
+
+/* Photos Grid */
+.photos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.photo-card {
+  width: 243px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.photo-card-img {
+  width: 243px;
+  height: 163px;
+  object-fit: cover;
+}
+.photo-card-caption {
+  font-size: 14px;
+  color: #230F32;
+  margin-top: 6px;
+}
+
+/* Popular Dishes Grid */
+.popular-dishes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.dish-card {
+  width: 243px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.dish-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #230F32;
+  margin: 0;
+}
+.dish-card-img {
+  width: 243px;
+  height: 163px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.dish-ordered {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.chart-icon {
+  font-size: 16px;
+  color: #32A4A8;
+}
+
+/* React Datepicker Custom Styling */
+.react-datepicker {
+  font-family: 'Inter', sans-serif;
+  border-radius: 8px;
+  border: 1.5px solid #B3B3B3;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
+.react-datepicker__header {
+  background-color: #32A4A8;
+  color: white;
+  border-bottom: none;
+}
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+  color: white;
+}
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #32A4A8 !important;
+  color: white;
+}
+.react-datepicker__day:hover {
+  background-color: #e1f5f6;
+}
+
+/* Notify Me Modal Styles */
+.notify-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.notify-me-modal {
+  background: #FFF;
+  padding: 24px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-family: 'Inter', sans-serif;
+  position: relative;
+}
+.notify-me-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.notify-me-title {
+  font-size: 20px;
+  color: #230F32;
+  margin: 0;
+}
+.notify-me-close {
+  font-size: 20px;
+  color: #000;
+  cursor: pointer;
+}
+.notify-me-subtitle {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 16px;
+}
+.notify-me-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.notify-label {
+  font-size: 14px;
+  color: #230F32;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.notify-input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1.5px solid #B3B3B3;
+  font-size: 14px;
+  background-color: #FFF;
+  color: #230F32;
+}
+.notify-me-button-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+.notify-me-submit-centered {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 8px;
+  background-color: #32A4A8;
+  color: #FFF;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+.notify-me-submit-centered:hover {
+  background-color: #289297;
+}
+.notify-success-message {
+  font-size: 16px;
+  color: green;
+  margin-top: 10px;
+}
+
+/* Login Modal Styles */
+.login-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+.login-modal {
+  position: relative;
+  background: #fff;
+  padding: 32px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+.login-modal h2 {
+  margin-bottom: 20px;
+  color: #230F32;
+  font-size: 22px;
+}
+.login-modal input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border: 1.5px solid #B3B3B3;
+  border-radius: 8px;
+  background-color: #FFF;
+  color: #230F32;
+  box-sizing: border-box;
+}
+.login-button {
+  width: 100%;
+  padding: 14px;
+  background-color: #32A4A8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.login-button:hover {
+  background-color: #289297;
+}
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #230F32;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Modal Styles for Finalize Booking */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.modal-content {
+  position: relative;
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  width: 320px;
+  text-align: center;
+}
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000;
+}
+.modal-close:hover {
+  opacity: 0.8;
+}
+.confirm-button {
+  margin-top: 16px;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2ca4a8;
+  color: #fff;
+  cursor: pointer;
+}
+.confirm-button:hover {
+  background-color: #2ca4a8;
+}
+.modal-message {
+  line-height: 1.6;
+  margin: 12px 0;
+}
+
+/* Change Form Styling */
+.change-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+.change-form label {
+  font-size: 14px;
+  color: #230F32;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.change-form input,
+.change-form select {
+  background-color: #fff;
+  color: #230F32;
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.change-form input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(45%) sepia(53%) saturate(565%) hue-rotate(135deg) brightness(98%) contrast(92%);
+}
+
+/* Phone Input (Single Box with Dropdown) */
+.phone-single-input {
+  position: relative;
+  width: 360px;
+  height: 61.5px;
+  border: 1px solid #B3B3B3;
+  border-radius: 8px;
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  box-sizing: border-box;
+  cursor: text;
+}
+.phone-single-input input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  height: 100%;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: #230F32;
+  padding: 0;
+  margin: 0;
+}
+.dropdown-arrow {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+}
+.flag-dropdown {
+  position: absolute;
+  top: 61.5px;
+  left: 0;
+  width: 100%;
+  background: #FFF;
+  border: 1px solid #B3B3B3;
+  border-radius: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  box-sizing: border-box;
+  z-index: 999;
+}
+.flag-dropdown li {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: #230F32;
+}
+.flag-dropdown li:hover {
+  background: #f1f1f1;
+}
