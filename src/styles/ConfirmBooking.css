@@ -1,0 +1,219 @@
+/***** ConfirmBooking Page Container *****/
+.confirm-booking-page {
+    text-align: center;
+    padding: 60px 20px;
+    font-family: 'Inter', sans-serif;
+    color: #230F32;
+}
+
+/***** Title *****/
+.confirm-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/***** Booking Details *****/
+.booking-details {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+.calendar-icon {
+    font-size: 14px;
+}
+
+/***** Success Icon & Message *****/
+.success-icon-container {
+    margin-bottom: 40px;
+}
+
+.success-icon {
+    background-color: #28c76f;
+    color: white;
+    font-size: 32px;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 12px auto;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 8px 24px rgba(40, 199, 111, 0.35);
+}
+
+.confirm-status {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.confirmation-text {
+    font-size: 14px;
+    color: #B3B3B3;
+    margin-bottom: 30px;
+}
+
+/***** Action Buttons *****/
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.outline-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 300px;
+    padding: 14px;
+    font-size: 14px;
+    border: 1px solid #CFCFCF;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    color: #230F32;
+    transition: all 0.2s ease;
+}
+
+.outline-button:hover {
+    background-color: #f1f1f1;
+}
+
+/***** Bottom Buttons *****/
+.bottom-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.filled-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 40px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #2CA4A8;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.filled-button:hover {
+    background-color: #1f8f91;
+}
+
+.btn-icon {
+    font-size: 16px;
+}
+
+/***** Hide any modal overlays not required *****/
+.login-modal-overlay,
+.cancel-modal-overlay {
+    display: none;
+}
+
+/***** Modal Styles *****/
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-content {
+    position: relative;
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    width: 320px;
+    text-align: center;
+}
+
+/* Make the X black and smaller */
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000;
+}
+
+.modal-close:hover svg {
+    opacity: 0.8;
+}
+
+/* Button in modal */
+.confirm-button {
+    margin-top: 16px;
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: #2CA4A8;
+    color: white;
+    cursor: pointer;
+}
+
+.confirm-button:hover {
+    background-color: #2CA4A8;
+}
+
+/* Modal message spacing */
+.modal-message {
+    line-height: 1.6;
+    margin: 12px 0;
+}
+
+/* Change form styling */
+.change-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.change-form label {
+    font-size: 14px;
+    text-align: left;
+    color: #230F32;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.change-form input,
+.change-form select {
+    background-color: #fff;
+    color: #230F32;
+    padding: 6px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Attempt to theme the native date picker icon for Chrome/Edge */
+.change-form input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(45%) sepia(53%) saturate(565%) hue-rotate(135deg)
+            brightness(98%) contrast(92%);
+}
