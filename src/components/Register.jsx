@@ -102,7 +102,7 @@ function Register() {
     setTimeout(() => {
       if (!validateForm()) return;
 
-      alert("Registration successful (frontend only)!");
+      alert("Registration successful");
       setFormData({
         email: "",
         fullName: "",
