@@ -29,7 +29,6 @@ import crispyDuckConfit from "../assets/crispyduckconfit.jpg";
 import vanillaPannaCotta from "../assets/vanillapanndacotta.jpg";
 import truffleMushroomRisotto from "../assets/trufflemushroomrisotto.jpg";
 
-
 import "../styles/Booking.css";
 
 const Booking = () => {
@@ -212,13 +211,17 @@ const Booking = () => {
     setSelectedTime(null);
   };
 
-  // When a time slot is clicked, update selectedTime (overwrite any previous selection)
+  // When a time slot is clicked, update selectedTime
   const handleSelectTime = (slot) => {
     setSelectedTime(slot);
   };
 
-  // Confirm Booking: navigate to the Finalize Booking page
+  // Confirm Booking: prevent navigation if no time is selected.
   const handleConfirmBooking = () => {
+    if (!selectedTime) {
+      alert("Please select a time before confirming your booking.");
+      return;
+    }
     navigate("/finalizebooking");
   };
 
@@ -287,7 +290,7 @@ const Booking = () => {
         <div className="booking-form-section">
           <h2 className="make-booking-title">Make a booking</h2>
           <div className="booking-form-container">
-            {/* Date, Time, People */}
+            {/* Date, Time, People Inputs */}
             <div className="booking-inputs-row">
               <div className="booking-field">
                 <ReactDatePicker
@@ -381,7 +384,11 @@ const Booking = () => {
 
             {showTimes && (
               <>
-                <button className="confirm-booking-btn" onClick={handleConfirmBooking}>
+                <button
+                  className="confirm-booking-btn"
+                  onClick={handleConfirmBooking}
+                  disabled={!selectedTime}
+                >
                   Confirm Booking
                 </button>
                 <p className="booked-this-week">
@@ -397,7 +404,7 @@ const Booking = () => {
         </div>
       </div>
 
-      {/* ------------------- Notify Me Modal ------------------- */}
+      {/* Notify Me Modal */}
       {showNotifyModal && (
         <div className="notify-modal-overlay">
           <div className="notify-me-modal">
@@ -466,7 +473,6 @@ const Booking = () => {
                       );
                     })}
                   </select>
-                  {/* Only one centered "Notify me" button */}
                   <div className="notify-me-button-wrap">
                     <button type="submit" className="notify-me-submit-centered">
                       Notify me
@@ -493,7 +499,7 @@ const Booking = () => {
           </div>
         </div>
       )}
-      {/* ------------------- End Notify Me Modal ------------------- */}
+      {/* End Notify Me Modal */}
     </div>
   );
 };
