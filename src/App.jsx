@@ -4,7 +4,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Booking from './components/Booking';
 import FinalizeBooking from './components/FinalizeBooking';
-import ConfirmBooking from './components/ConfirmBooking'; 
+import ConfirmBooking from './components/ConfirmBooking';
+
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/finalizebooking" element={<FinalizeBooking />} />
-        <Route path="/confirm" element={<ConfirmBooking />} /> 
+        <Route path="/confirm" element={<ConfirmBooking />} />
       </Routes>
     </Router>
   );

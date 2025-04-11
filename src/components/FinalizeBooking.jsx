@@ -19,7 +19,6 @@ const FinalizeBooking = () => {
   const [loginPassword, setLoginPassword] = useState("");
 
   const [email, setEmail] = useState("");
-  // Separate the country code (prefix) from the phone number
   const [prefix, setPrefix] = useState("+44");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [flag, setFlag] = useState("🇬🇧");
@@ -51,20 +50,16 @@ const FinalizeBooking = () => {
 
   const handleEmailChange = (e) => setEmail(e.target.value);
 
-  // Modified phone input handler
-  // This function removes all non-digits, limits the result to 10 digits,
-  // and then inserts a space after the first 4 digits (format: xxxx xxxxxx)
   const handlePhoneChange = (e) => {
     let value = e.target.value;
-    value = value.replace(/\D/g, ""); // Remove non-digit characters
-    value = value.slice(0, 10); // Limit to max of 10 digits
+    value = value.replace(/\D/g, "");
+    value = value.slice(0, 10);
     if (value.length > 4) {
       value = value.slice(0, 4) + " " + value.slice(4);
     }
     setPhoneNumber(value);
   };
 
-  // Update only the prefix when selecting a flag, leaving phoneNumber unchanged.
   const handleSelectFlag = (newFlag) => {
     const newPrefix = newFlag === "🇬🇧" ? "+44" : "+33";
     setFlag(newFlag);
@@ -98,7 +93,6 @@ const FinalizeBooking = () => {
   };
 
   const isEmailValid = () => email.trim() !== "" && email.includes("@");
-  // For validation, require exactly 10 digits (ignoring any space)
   const isPhoneValid = () => phoneNumber.replace(/\s/g, "").length === 10;
   const isCardNumberValid = () => /^\d{4} \d{4} \d{4} \d{4}$/.test(cardNumber);
   const isExpiryValid = () => /^\d{2}\/\d{2}$/.test(expiry);

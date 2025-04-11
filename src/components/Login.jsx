@@ -16,7 +16,6 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // ✅ Navigate to /booking instead of alert
     navigate("/booking");
   };
 
@@ -40,7 +39,7 @@ function Login() {
     const masked = maskEmail(resetEmail);
     setMaskedEmail(masked);
     setShowCodeStep(true);
-    setResetEmail(""); // 🧼 Clears email field after code is sent
+    setResetEmail("");
   };
 
   const maskEmail = (email) => {
@@ -90,7 +89,6 @@ function Login() {
         </p>
       </section>
 
-      {/* Modal */}
       {showModal && (
         <div className="modal-overlay" style={{ display: "flex" }}>
           <div className="modal">

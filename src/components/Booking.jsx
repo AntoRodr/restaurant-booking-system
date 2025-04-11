@@ -34,7 +34,7 @@ import "../styles/Booking.css";
 const Booking = () => {
   const navigate = useNavigate();
 
-  // ---- Existing states ----
+  
   const [activeTab, setActiveTab] = useState("Overview");
   const [selectedDate, setSelectedDate] = useState(null);
   const [dropdownTime, setDropdownTime] = useState("");
@@ -42,15 +42,15 @@ const Booking = () => {
   const [showTimes, setShowTimes] = useState(false);
   const [selectedTime, setSelectedTime] = useState(null);
 
-  // ---- States for the "Notify Me" modal ----
+  
   const [showNotifyModal, setShowNotifyModal] = useState(false);
   const [notifyEmail, setNotifyEmail] = useState("");
   const [notifyDate, setNotifyDate] = useState(null);
   const [notifyTime, setNotifyTime] = useState("");
   const [notifyPeople, setNotifyPeople] = useState("");
-  // Two-step modal: "form" vs. "confirmation"
+
   const [notifyStep, setNotifyStep] = useState("form");
-  // Success message shown below the booking form after the modal is closed
+  
   const [notifySuccess, setNotifySuccess] = useState("");
 
   const menuItems = [
@@ -92,7 +92,6 @@ const Booking = () => {
     { name: "Sourdough and olive bread", image: sourdough, orders: 80 },
   ];
 
-  // Helper for star ratings
   const ReviewStars = ({ rating }) => {
     const stars = [];
     let remaining = rating;
@@ -110,14 +109,14 @@ const Booking = () => {
     return <div className="review-stars">{stars}</div>;
   };
 
-  // Email masking helper (e.g., "d****@test.com")
+  
   const maskEmail = (email) => {
     const [local, domain] = email.split("@");
     if (!local || !domain) return email;
     return local[0] + "****@" + domain;
   };
 
-  // Render content for each tab
+ 
   const renderTabContent = () => {
     switch (activeTab) {
       case "Overview":
@@ -202,21 +201,21 @@ const Booking = () => {
     }
   };
 
-  // Time slots array
+  
   const timeSlots = ["16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
 
-  // When "Check Availability" is clicked, show the time slots row
+  
   const handleCheckTimes = () => {
     setShowTimes(true);
     setSelectedTime(null);
   };
 
-  // When a time slot is clicked, update selectedTime
+  
   const handleSelectTime = (slot) => {
     setSelectedTime(slot);
   };
 
-  // Confirm Booking: prevent navigation if no time is selected.
+  
   const handleConfirmBooking = () => {
     if (!selectedTime) {
       alert("Please select a time before confirming your booking.");
@@ -225,17 +224,17 @@ const Booking = () => {
     navigate("/finalizebooking");
   };
 
-  // Submit the "Notify Me" form => move to confirmation step
+  
   const handleNotifySubmit = (e) => {
     e.preventDefault();
     setNotifyStep("confirmation");
   };
 
-  // In confirmation step, when the user clicks the X, finalize notify process
+  
   const handleCloseNotify = () => {
     const masked = maskEmail(notifyEmail);
     setNotifySuccess(`Email reminder has been set up for ${masked}`);
-    // Clear notify fields
+   
     setNotifyEmail("");
     setNotifyDate(null);
     setNotifyTime("");
