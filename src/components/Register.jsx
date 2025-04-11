@@ -102,7 +102,7 @@ function Register() {
     setTimeout(() => {
       if (!validateForm()) return;
 
-      alert("Registration successful (frontend only)!");
+      alert("Registration successful");
       setFormData({
         email: "",
         fullName: "",
@@ -134,26 +134,22 @@ function Register() {
         {formErrors.fullName && <p className="error">{formErrors.fullName}</p>}
 
         <label>Date of birth</label>
-<input
-  type="text"
-  name="dob"
-  value={formData.dob}
-  onChange={(e) => {
-    let val = e.target.value.replace(/\D/g, ""); // remove non-digits
-
-    if (val.length > 8) val = val.slice(0, 8);
-
-    let formatted = "";
-    if (val.length > 0) formatted += val.slice(0, 2);
-    if (val.length > 2) formatted += "/" + val.slice(2, 4);
-    if (val.length > 4) formatted += "/" + val.slice(4, 8);
-
-    setFormData((prev) => ({ ...prev, dob: formatted }));
-  }}
-  maxLength={10}
-/>
-{formErrors.dob && <p className="error">{formErrors.dob}</p>}
-
+        <input
+          type="text"
+          name="dob"
+          value={formData.dob}
+          onChange={(e) => {
+            let val = e.target.value.replace(/\D/g, "");
+            if (val.length > 8) val = val.slice(0, 8);
+            let formatted = "";
+            if (val.length > 0) formatted += val.slice(0, 2);
+            if (val.length > 2) formatted += "/" + val.slice(2, 4);
+            if (val.length > 4) formatted += "/" + val.slice(4, 8);
+            setFormData((prev) => ({ ...prev, dob: formatted }));
+          }}
+          maxLength={10}
+        />
+        {formErrors.dob && <p className="error">{formErrors.dob}</p>}
 
         <label>Mobile number</label>
         <div className="mobile-input">

@@ -50,7 +50,6 @@
   box-sizing: border-box;
 }
 
-/* Autofill fix */
 input:-webkit-autofill,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:hover,
@@ -179,9 +178,6 @@ input:-webkit-autofill:active {
   text-decoration: none;
   margin-left: 5px;
   font-size: inherit;
-
-
-  
 }
 
 .register-btn {
@@ -212,7 +208,6 @@ input:-webkit-autofill:active {
   font-family: 'Inter', sans-serif;
 }
 
-/* Error message */
 .error {
   color: #D32F2F;
   font-size: 13px;

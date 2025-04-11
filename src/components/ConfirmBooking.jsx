@@ -8,11 +8,9 @@ import {
 import "../styles/ConfirmBooking.css";
 
 const ConfirmBooking = () => {
-  // State for cancellation modal
   const [showCancelModal, setShowCancelModal] = useState(false);
   const [bookingCancelled, setBookingCancelled] = useState(false);
 
-  // State for change modal
   const [showChangeModal, setShowChangeModal] = useState(false);
   const [bookingChanged, setBookingChanged] = useState(false);
 
@@ -24,9 +22,8 @@ const ConfirmBooking = () => {
   };
 
   const handleAddToCalendar = () => {
-    // Generate a simple ICS file for download
-    const bookingStart = "20250214T140000Z"; // booking start time in UTC
-    const bookingEnd = "20250214T150000Z";   // booking end time (1 hour later)
+    const bookingStart = "20250214T140000Z";
+    const bookingEnd = "20250214T150000Z";
     const uid = new Date().getTime() + "@ormermayfair.com";
     const icsData = [
       "BEGIN:VCALENDAR",
@@ -54,7 +51,6 @@ const ConfirmBooking = () => {
     document.body.removeChild(link);
   };
 
-  // Cancel modal handlers
   const handleCancelBooking = () => {
     setShowCancelModal(true);
   };
@@ -66,11 +62,9 @@ const ConfirmBooking = () => {
 
   const confirmCancel = () => {
     console.log("Booking canceled!");
-    // Insert any additional cancellation logic/API call here
     setBookingCancelled(true);
   };
 
-  // Change modal handlers
   const handleChangeBooking = () => {
     setShowChangeModal(true);
   };
@@ -82,14 +76,11 @@ const ConfirmBooking = () => {
 
   const handleChangeSubmit = (e) => {
     e.preventDefault();
-    // Retrieve the new booking details
     const newDate = e.target.newDate.value;
     const newTime = e.target.newTime.value;
     const newPeople = e.target.newPeople.value;
 
     console.log("Booking updated to:", newDate, newTime, newPeople);
-    // Insert your API call or further processing logic here
-
     setBookingChanged(true);
   };
 
@@ -126,7 +117,6 @@ const ConfirmBooking = () => {
         </button>
       </div>
 
-      {/* Cancel Booking Modal */}
       {showCancelModal && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -160,7 +150,6 @@ const ConfirmBooking = () => {
         </div>
       )}
 
-      {/* Change Booking Modal */}
       {showChangeModal && (
         <div className="modal-overlay">
           <div className="modal-content">

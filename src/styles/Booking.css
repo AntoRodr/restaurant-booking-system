@@ -1,4 +1,4 @@
-/***** Overall Layout *****/
+
 .booking-page {
   width: 100%;
   display: flex;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-/* Banner Image */
+
 .booking-banner-img {
   display: block;
   width: 1700px;
@@ -17,7 +17,7 @@
   border-radius: 16px;
 }
 
-/* Restaurant Title */
+
 .restaurant-title {
   width: 1700px;
   margin: -10px auto 24px auto;
@@ -28,7 +28,7 @@
   text-align: left;
 }
 
-/* Restaurant Info Line */
+
 .restaurant-info-line {
   width: 1700px;
   margin: 8px auto 32px auto;
@@ -62,7 +62,7 @@
   font-weight: 500;
 }
 
-/* Tabs and Booking Title Row */
+
 .tabs-and-booking-title {
   width: 1700px;
   margin: 0 auto 20px auto;
@@ -98,7 +98,7 @@
   border-color: #32A4A8;
 }
 
-/* Main Layout */
+
 .booking-layout {
   width: 1700px;
   margin: 0 auto 60px auto;
@@ -110,7 +110,7 @@
   flex: 1;
 }
 
-/* Booking Form Section (Right side) */
+
 .booking-form-section {
   width: 100%;
   max-width: 540px;
@@ -120,7 +120,7 @@
   padding-right: 40px;
 }
 
-/* Booking Card (White Box) */
+
 .booking-card {
   width: 540px;
   min-height: 450px;
@@ -136,7 +136,7 @@
   position: relative;
 }
 
-/* "Make a booking" Title */
+
 .make-booking-title {
   position: relative;
   left: -813px;
@@ -146,7 +146,6 @@
   margin-bottom: 20px;
 }
 
-/* Booking Form Container */
 .booking-form-container {
   width: 100%;
   display: flex;
@@ -156,7 +155,7 @@
   align-items: center;
 }
 
-/* Booking Inputs Row */
+
 .booking-inputs-row {
   display: flex;
   gap: 20px;
@@ -167,7 +166,7 @@
   top: -120px;
 }
 
-/* Booking Field (for Date, Time, People) */
+
 .booking-field {
   display: flex;
   align-items: center;
@@ -196,7 +195,7 @@
   background: #FFF;
 }
 
-/* Custom Date Input Wrapper */
+
 .date-input-wrapper {
   position: relative;
   display: inline-block;
@@ -210,7 +209,7 @@
   color: #32A4A8;
 }
 
-/* Check Availability Button */
+
 .check-availability-btn {
   position: relative;
   left: -815px;
@@ -225,7 +224,7 @@
   cursor: pointer;
 }
 
-/* "Select a time" Label */
+
 .select-time-label {
   position: relative;
   left: -1017px;
@@ -236,7 +235,7 @@
   font-weight: 500;
 }
 
-/* Time Buttons Row */
+
 .time-buttons-row {
   display: flex;
   gap: 12px;
@@ -249,7 +248,7 @@
   margin-bottom: 10px;
 }
 
-/* Time Slot Box */
+
 .time-slot {
   height: 48px;
   padding: 6px;
@@ -272,13 +271,13 @@
   white-space: nowrap;
 }
 
-/* Selected Time Slot */
+
 .time-slot-selected {
   background: #b2f0f4 !important;
   border: 2px solid #32A4A8;
 }
 
-/* "Notify me" time slot button */
+
 .notify-btn {
   background-color: #32A4A8 !important;
   color: #FFF !important;
@@ -290,7 +289,7 @@
   color: #FFF !important;
 }
 
-/* Confirm Booking Button */
+
 .confirm-booking-btn {
   position: relative;
   left: -817px;
@@ -311,7 +310,7 @@
   cursor: not-allowed;
 }
 
-/* "100 Booked this week" Text */
+
 .booked-this-week {
   position: relative;
   left: -820px;
@@ -325,7 +324,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* Tab Content Area */
+
 .tab-content {
   width: 1700px;
   margin: 0 auto 20px auto;
@@ -341,7 +340,7 @@
   margin: 0;
 }
 
-/* Reviews Grid */
+
 .reviews-grid {
   display: flex;
   flex-wrap: wrap;
@@ -375,7 +374,7 @@
   align-self: flex-end;
 }
 
-/* Menu Grid */
+
 .menu-grid {
   display: flex;
   flex-wrap: wrap;
@@ -422,7 +421,7 @@
   align-self: flex-end;
 }
 
-/* Photos Grid */
+
 .photos-grid {
   display: flex;
   flex-wrap: wrap;
@@ -446,7 +445,7 @@
   margin-top: 6px;
 }
 
-/* Popular Dishes Grid */
+
 .popular-dishes-grid {
   display: flex;
   flex-wrap: wrap;
@@ -483,7 +482,7 @@
   color: #32A4A8;
 }
 
-/* React Datepicker Custom Styling */
+
 .react-datepicker {
   font-family: 'Inter', sans-serif;
   border-radius: 8px;
@@ -510,7 +509,7 @@
   background-color: #e1f5f6;
 }
 
-/* Notify Me Modal Styles */
+
 .notify-modal-overlay {
   position: fixed;
   top: 0;
@@ -598,7 +597,7 @@
   margin-top: 10px;
 }
 
-/* Login Modal Styles */
+
 .login-modal-overlay {
   position: fixed;
   top: 0;
@@ -663,7 +662,6 @@
   border: none;
 }
 
-/* Modal Styles for Finalize Booking */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -715,7 +713,7 @@
   margin: 12px 0;
 }
 
-/* Change Form Styling */
+
 .change-form {
   display: flex;
   flex-direction: column;
@@ -742,7 +740,7 @@
   filter: invert(45%) sepia(53%) saturate(565%) hue-rotate(135deg) brightness(98%) contrast(92%);
 }
 
-/* Phone Input (Single Box with Dropdown) */
+
 .phone-single-input {
   position: relative;
   width: 360px;
