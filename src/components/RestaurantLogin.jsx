@@ -1,9 +1,7 @@
-
-
-
+"use client";
 import React from "react";
-import ImageGrid from "./components/ImageGrid";
-import LoginForm from "./components/LoginForm";
+import ImageGrid from "./ImageGrid";
+import LoginForm from "./LoginForm";
 
 const RestaurantLogin = () => {
   return (
@@ -27,7 +25,7 @@ const RestaurantLogin = () => {
           margin: 0 auto;
         }
         .hero-heading {
-          color:rgb(0, 0, 0);
+          color:rgb(255, 0, 0);
           font-size: 64px;
           font-weight: 700;
           text-align: center;
