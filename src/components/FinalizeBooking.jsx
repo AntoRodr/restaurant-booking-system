@@ -1,45 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaRegCalendarAlt, FaRegClock, FaUser } from "react-icons/fa";
+import { FaRegCalendarAlt, FaRegClock, FaUser, FaTimes } from "react-icons/fa";
 import "../styles/FinalizeBooking.css";
 
 const FinalizeBooking = () => {
   const navigate = useNavigate();
 
-  // Mocked booking details
   const [selectedDate] = useState("14/02/2025");
   const [selectedTime] = useState("14:00");
   const [selectedPeople] = useState("4");
 
-  // Timer logic
   const [timeLeft, setTimeLeft] = useState(300);
   const [bookingExpired, setBookingExpired] = useState(false);
 
-  // Show/hide login modal
   const [showLogin, setShowLogin] = useState(false);
+  const [logoutStep, setLogoutStep] = useState("confirm");
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  // Required fields
   const [email, setEmail] = useState("");
-  // Single phone state including prefix, e.g. "+44 1234567890"
-  const [phone, setPhone] = useState("+44 ");
-  // Whether the small country-flag dropdown is open
+  // Separate the country code (prefix) from the phone number
+  const [prefix, setPrefix] = useState("+44");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [flag, setFlag] = useState("🇬🇧");
   const [showFlagDropdown, setShowFlagDropdown] = useState(false);
 
-  // Payment fields
   const [cardName, setCardName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvc, setCVC] = useState("");
   const [postcode, setPostcode] = useState("");
 
-  // Optional fields
-  // (occasion and allergy are optional, so we don’t include them in validation)
   const [occasion, setOccasion] = useState("");
   const [allergy, setAllergy] = useState("");
 
-  // Countdown effect
   useEffect(() => {
     if (timeLeft <= 0) {
       setBookingExpired(true);
@@ -55,145 +49,76 @@ const FinalizeBooking = () => {
     return `${min}:${sec.toString().padStart(2, "0")}`;
   };
 
-  /*************************
-   *    FIELD HANDLERS     *
-   *************************/
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+  const handleEmailChange = (e) => setEmail(e.target.value);
 
+  // Modified phone input handler
+  // This function removes all non-digits, limits the result to 10 digits,
+  // and then inserts a space after the first 4 digits (format: xxxx xxxxxx)
   const handlePhoneChange = (e) => {
     let value = e.target.value;
-
-    // Enforce either +44 or +33 prefix at the start
-    if (value.startsWith("+44 ")) {
-      // Strip prefix, keep only digits
-      let digits = value.replace("+44 ", "").replace(/\D/g, "");
-      // Limit digits to 10
-      if (digits.length > 10) digits = digits.slice(0, 10);
-      setPhone(`+44 ${digits}`);
-    } else if (value.startsWith("+33 ")) {
-      let digits = value.replace("+33 ", "").replace(/\D/g, "");
-      if (digits.length > 10) digits = digits.slice(0, 10);
-      setPhone(`+33 ${digits}`);
-    } else {
-      // If user manually deleted the prefix, default to +44
-      let digits = value.replace(/\D/g, "").slice(0, 10);
-      setPhone(`+44 ${digits}`);
+    value = value.replace(/\D/g, ""); // Remove non-digit characters
+    value = value.slice(0, 10); // Limit to max of 10 digits
+    if (value.length > 4) {
+      value = value.slice(0, 4) + " " + value.slice(4);
     }
+    setPhoneNumber(value);
   };
 
-  // Switch prefix from the dropdown
-  const handleSelectPrefix = (prefix) => {
-    // Remove old prefix and reapply the new one with existing digits
-    let current = phone;
-    if (current.startsWith("+44 ")) {
-      current = current.replace("+44 ", "");
-    } else if (current.startsWith("+33 ")) {
-      current = current.replace("+33 ", "");
-    }
-    // Only digits remain
-    let digits = current.replace(/\D/g, "").slice(0, 10);
-    setPhone(`${prefix} ${digits}`);
+  // Update only the prefix when selecting a flag, leaving phoneNumber unchanged.
+  const handleSelectFlag = (newFlag) => {
+    const newPrefix = newFlag === "🇬🇧" ? "+44" : "+33";
+    setFlag(newFlag);
+    setPrefix(newPrefix);
     setShowFlagDropdown(false);
   };
 
   const handleCardNameChange = (e) => {
-    const value = e.target.value;
-    // Only letters and spaces
-    if (/^[A-Za-z\s]*$/.test(value)) {
-      setCardName(value);
-    }
+    if (/^[A-Za-z\s]*$/.test(e.target.value)) setCardName(e.target.value);
   };
 
   const handleCardNumberChange = (e) => {
     let value = e.target.value.replace(/\D/g, "").slice(0, 16);
-    // Insert spaces every 4 digits
-    value = value.replace(/(.{4})/g, "$1 ").trim();
-    setCardNumber(value);
+    setCardNumber(value.replace(/(.{4})/g, "$1 ").trim());
   };
 
   const handleExpiryChange = (e) => {
     let value = e.target.value.replace(/\D/g, "").slice(0, 4);
-    if (value.length >= 3) {
-      value = value.slice(0, 2) + "/" + value.slice(2);
-    }
+    if (value.length >= 3) value = value.slice(0, 2) + "/" + value.slice(2);
     setExpiry(value);
   };
 
   const handleCVCChange = (e) => {
-    const value = e.target.value.replace(/\D/g, "").slice(0, 4);
-    setCVC(value);
+    setCVC(e.target.value.replace(/\D/g, "").slice(0, 4));
   };
 
   const handlePostcodeChange = (e) => {
     let value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
-    if (value.length > 4) {
-      value = value.slice(0, 4) + " " + value.slice(4);
-    }
+    if (value.length > 4) value = value.slice(0, 4) + " " + value.slice(4);
     setPostcode(value.slice(0, 8));
   };
 
-  /*************************
-   *    FORM VALIDATION    *
-   *************************/
-  const isEmailValid = () => {
-    // Simple check: must contain "@" 
-    return email.trim() !== "" && email.includes("@");
-  };
+  const isEmailValid = () => email.trim() !== "" && email.includes("@");
+  // For validation, require exactly 10 digits (ignoring any space)
+  const isPhoneValid = () => phoneNumber.replace(/\s/g, "").length === 10;
+  const isCardNumberValid = () => /^\d{4} \d{4} \d{4} \d{4}$/.test(cardNumber);
+  const isExpiryValid = () => /^\d{2}\/\d{2}$/.test(expiry);
+  const isCvcValid = () => /^\d{3,4}$/.test(cvc);
+  const isPostcodeValid = () => postcode.trim().length > 0;
 
-  const isPhoneValid = () => {
-    // Must start with +44 or +33, then have exactly 10 digits
-    if (phone.startsWith("+44 ")) {
-      const digits = phone.replace("+44 ", "");
-      return digits.length === 10 && /^\d+$/.test(digits);
-    } else if (phone.startsWith("+33 ")) {
-      const digits = phone.replace("+33 ", "");
-      return digits.length === 10 && /^\d+$/.test(digits);
-    }
-    return false;
-  };
+  const isFormValid = () =>
+    isEmailValid() &&
+    isPhoneValid() &&
+    cardName.trim() !== "" &&
+    isCardNumberValid() &&
+    isExpiryValid() &&
+    isCvcValid() &&
+    isPostcodeValid();
 
-  const isCardNumberValid = () => {
-    // After removing spaces, must have 16 digits
-    const raw = cardNumber.replace(/\s+/g, "");
-    return raw.length === 16 && /^\d+$/.test(raw);
-  };
-
-  const isExpiryValid = () => {
-    // Very simplistic check: must be 5 characters "MM/YY"
-    return expiry.length === 5 && /^\d{2}\/\d{2}$/.test(expiry);
-  };
-
-  const isCvcValid = () => {
-    // 3 or 4 digits
-    return cvc.length >= 3 && cvc.length <= 4 && /^\d+$/.test(cvc);
-  };
-
-  const isPostcodeValid = () => {
-    // Just check if not empty for now, or length > 0
-    return postcode.trim() !== "";
-  };
-
-  const isFormValid = () => {
-    return (
-      isEmailValid() &&
-      isPhoneValid() &&
-      cardName.trim() !== "" &&
-      isCardNumberValid() &&
-      isExpiryValid() &&
-      isCvcValid() &&
-      isPostcodeValid()
-    );
-  };
-
-  // Finalize booking only if valid
   const handleFinalize = () => {
     if (!isFormValid()) {
-      alert("Please fill all required fields correctly before finalizing.");
+      alert("Please complete all required fields.");
       return;
     }
-    // If valid, proceed
     navigate("/confirm");
   };
 
@@ -225,49 +150,61 @@ const FinalizeBooking = () => {
       </div>
 
       <div className="logout-line">
-        Not Alex? <span className="logout-link" onClick={() => setShowLogin(true)}>Log out</span>
+        Not Alex?{" "}
+        <span className="logout-link" onClick={() => setShowLogin(true)}>
+          Log out
+        </span>
       </div>
 
       <div className="finalize-content">
-        {/* CONTACT INFO */}
         <div className="contact-info">
           <div className="finalize-field">
             <label>Email</label>
             <input
               type="email"
-              placeholder="Enter your email"
               value={email}
               onChange={handleEmailChange}
+              placeholder="Enter your email"
             />
           </div>
 
           <div className="finalize-field">
             <label>Phone</label>
-            <div
-              className="phone-single-input"
-              onClick={() => setShowFlagDropdown(!showFlagDropdown)}
-            >
+            <div className="phone-flag-container">
+              <span
+                className="flag-emoji"
+                onClick={() => setShowFlagDropdown(!showFlagDropdown)}
+              >
+                {flag}
+              </span>
+              {showFlagDropdown && (
+                <div className="flag-dropdown-list">
+                  <div onClick={() => handleSelectFlag("🇬🇧")}>
+                    🇬🇧 +44
+                  </div>
+                  <div onClick={() => handleSelectFlag("🇫🇷")}>
+                    🇫🇷 +33
+                  </div>
+                </div>
+              )}
+              <span className="phone-prefix">{prefix}</span>
               <input
                 type="text"
-                value={phone}
+                value={phoneNumber}
                 onChange={handlePhoneChange}
+                placeholder="8415 244423"
               />
-              <span className="dropdown-arrow">▾</span>
-              {showFlagDropdown && (
-                <ul className="flag-dropdown">
-                  <li onClick={() => handleSelectPrefix("+44")}>🇬🇧 +44</li>
-                  <li onClick={() => handleSelectPrefix("+33")}>🇫🇷 +33</li>
-                </ul>
-              )}
             </div>
           </div>
         </div>
 
-        {/* OCCASION + ALLERGY (OPTIONAL) */}
         <div className="occasion-allergy">
           <div className="finalize-field">
             <label>Select an occasion (optional)</label>
-            <select value={occasion} onChange={(e) => setOccasion(e.target.value)}>
+            <select
+              value={occasion}
+              onChange={(e) => setOccasion(e.target.value)}
+            >
               <option value="">Select an occasion</option>
               <option value="Birthday">Birthday</option>
               <option value="Anniversary">Anniversary</option>
@@ -286,24 +223,23 @@ const FinalizeBooking = () => {
           </div>
         </div>
 
-        {/* CARD INFO */}
         <div className="card-info-1">
           <div className="finalize-field">
             <label>Name on card</label>
             <input
               type="text"
-              placeholder="Name on card"
               value={cardName}
               onChange={handleCardNameChange}
+              placeholder="Name on card"
             />
           </div>
           <div className="finalize-field">
             <label>Card number</label>
             <input
               type="text"
-              placeholder="0123 0123 0123 0123"
               value={cardNumber}
               onChange={handleCardNumberChange}
+              placeholder="0123 0123 0123 0123"
             />
           </div>
         </div>
@@ -313,32 +249,31 @@ const FinalizeBooking = () => {
             <label>Expiry</label>
             <input
               type="text"
-              placeholder="01/25"
               value={expiry}
               onChange={handleExpiryChange}
+              placeholder="MM/YY"
             />
           </div>
           <div className="finalize-field finalize-cvc">
             <label>CVC</label>
             <input
               type="password"
-              placeholder="CVC"
               value={cvc}
               onChange={handleCVCChange}
+              placeholder="CVC"
             />
           </div>
           <div className="finalize-field finalize-postcode">
             <label>Postcode</label>
             <input
               type="text"
-              placeholder="SE11 4RX"
               value={postcode}
               onChange={handlePostcodeChange}
+              placeholder="SE11 4RX"
             />
           </div>
         </div>
 
-        {/* FINALIZE BUTTON: DISABLED unless form is valid */}
         <button
           className="finalize-button"
           onClick={handleFinalize}
@@ -348,12 +283,13 @@ const FinalizeBooking = () => {
         </button>
       </div>
 
-      {/* EXPIRED MODAL */}
       {bookingExpired && (
         <div className="expired-modal-overlay">
           <div className="expired-modal">
             <h2>Booking has expired</h2>
-            <p>Your booking time has expired. Please go back and select a new time.</p>
+            <p>
+              Your booking time has expired. Please go back and select a new time.
+            </p>
             <button
               className="expired-button"
               onClick={() => navigate("/booking")}
@@ -364,29 +300,59 @@ const FinalizeBooking = () => {
         </div>
       )}
 
-      {/* LOGIN MODAL */}
       {showLogin && (
-        <div className="login-modal-overlay">
-          <div className="login-modal">
-            <button className="close-button" onClick={() => setShowLogin(false)}>
+        <div className="logout-modal-overlay">
+          <div className="logout-modal">
+            <button
+              className="close-logout-modal"
+              onClick={() => {
+                setShowLogin(false);
+                setLogoutStep("confirm");
+              }}
+            >
               ×
             </button>
-            <h2>Log in</h2>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={loginEmail}
-              onChange={(e) => setLoginEmail(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Enter your password"
-              value={loginPassword}
-              onChange={(e) => setLoginPassword(e.target.value)}
-            />
-            <button className="login-button" onClick={() => setShowLogin(false)}>
-              Log in
-            </button>
+            {logoutStep === "confirm" ? (
+              <>
+                <h2 className="logout-modal-title">Switch Account</h2>
+                <p className="logout-modal-message">
+                  Are you sure you want to log out and sign in with a different account?
+                </p>
+                <button className="logout-submit" onClick={() => setLogoutStep("login")}>
+                  Confirm Log Out
+                </button>
+              </>
+            ) : (
+              <>
+                <h2 className="logout-modal-title">Log into Another Account</h2>
+                <p className="logout-modal-message">
+                  Please enter your credentials below.
+                </p>
+                <input
+                  type="email"
+                  className="logout-input"
+                  value={loginEmail}
+                  onChange={(e) => setLoginEmail(e.target.value)}
+                  placeholder="Email address"
+                />
+                <input
+                  type="password"
+                  className="logout-input"
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                  placeholder="Password"
+                />
+                <button
+                  className="logout-submit"
+                  onClick={() => {
+                    setShowLogin(false);
+                    setLogoutStep("confirm");
+                  }}
+                >
+                  Log In
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}

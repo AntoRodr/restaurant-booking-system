@@ -1,4 +1,4 @@
-/***** Finalize Booking Page Container *****/
+/***** Page Container *****/
 .finalize-booking-page {
   width: 100%;
   display: flex;
@@ -20,14 +20,13 @@
 
 /***** Title *****/
 .finalize-title {
-  color: #230F32;
-  text-align: center;
   font-size: 48px;
   font-weight: 700;
   margin-top: 24px;
+  color: #230F32;
 }
 
-/***** Selected Info Row (Date, Time, People) *****/
+/***** Selected Info Row *****/
 .selected-info {
   display: flex;
   justify-content: center;
@@ -36,6 +35,7 @@
   margin-top: -10px;
   margin-bottom: 20px;
 }
+
 .info-item {
   display: flex;
   align-items: center;
@@ -44,45 +44,40 @@
   font-weight: 400;
   color: #000;
 }
-.info-item .icon {
+
+.icon {
   font-size: 20px;
   color: #000;
 }
 
-/***** Holding Table Note with Timer *****/
+/***** Holding Table Note *****/
 .holding-note {
-  display: flex;
+  background-color: #EAFEFF;
+  padding: 0 20px;
   width: 600px;
   height: 61.5px;
-  padding: 0 20px;
-  justify-content: center;
+  display: flex;
   align-items: center;
-  gap: 10px;
-  background-color: #EAFEFF;
+  justify-content: center;
   border-radius: 12px;
   font-size: 20px;
   font-weight: 500;
   color: #000;
-  text-align: center;
-  box-sizing: border-box;
-}
-.holding-note p {
-  margin: 0;
 }
 
 /***** Logout Line *****/
 .logout-line {
   text-align: center;
   font-size: 18px;
-  color: #230F32;
   margin-top: 20px;
+  color: #230F32;
 }
-.logout-line a,
+
 .logout-link {
   color: #32A4A8;
-  text-decoration: none;
-  font-weight: 500;
   cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 /***** Main Content Container *****/
@@ -95,7 +90,7 @@
   text-align: center;
 }
 
-/***** Row Layouts with Custom Gaps *****/
+/***** Layouts *****/
 .contact-info,
 .occasion-allergy,
 .card-info-1 {
@@ -103,167 +98,52 @@
   justify-content: center;
   gap: 40px;
 }
+
 .card-info-2 {
   display: flex;
   justify-content: center;
   gap: 20px;
 }
 
-/***** Field Containers *****/
+/***** Form Fields *****/
 .finalize-field {
   display: flex;
   flex-direction: column;
-  gap: 4px;
   align-items: center;
+  gap: 4px;
 }
+
 .finalize-field label {
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 4px;
   color: #230F32;
+  margin-bottom: 4px;
 }
 
-/***** Inputs & Selects *****/
 .finalize-field input,
 .finalize-field select {
-  display: flex;
   width: 360px;
   height: 61.5px;
   padding: 20px;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  border-radius: 8px;
   border: 1px solid #B3B3B3;
-  background: #FFF;
+  border-radius: 8px;
   font-size: 16px;
-  font-weight: 400;
-  font-family: 'Inter', sans-serif;
   color: #230F32;
+  font-family: 'Inter', sans-serif;
+  background: #FFF;
   outline: none;
   box-sizing: border-box;
 }
 
-/***** Short Input Sizing (Expiry, CVC, Postcode) *****/
+/***** Short Fields *****/
 .finalize-expiry input,
 .finalize-cvc input,
 .finalize-postcode input {
   width: 240px;
-  height: 61.5px;
 }
 
 /***** Finalize Button *****/
 .finalize-button {
-  width: 100%;
-  padding: 14px;
-  background-color: #32A4A8;
-  color: #FFF;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  text-align: center;
-  margin-top: 10px;
-}
-.finalize-button:hover {
-  background-color: #289297;
-}
-/* Styling for disabled button */
-.finalize-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-/***** Expired Modal Overlay *****/
-.expired-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3000;
-}
-.expired-modal {
-  background: #FFF;
-  padding: 24px;
-  border-radius: 10px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-.expired-modal h2 {
-  font-size: 20px;
-  color: #230F32;
-  margin-bottom: 10px;
-}
-.expired-modal p {
-  font-size: 14px;
-  color: #230F32;
-  margin-bottom: 20px;
-}
-.expired-button {
-  padding: 12px 24px;
-  background-color: #32A4A8;
-  color: #FFF;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-family: 'Inter', sans-serif;
-  cursor: pointer;
-}
-.expired-button:hover {
-  background-color: #289297;
-}
-
-/***** Login Modal Styles *****/
-.login-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3000;
-}
-.login-modal {
-  position: relative;
-  background: #fff;
-  padding: 32px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  font-family: 'Inter', sans-serif;
-}
-.login-modal h2 {
-  margin-bottom: 20px;
-  color: #230F32;
-  font-size: 22px;
-}
-.login-modal input {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 16px;
-  font-size: 14px;
-  border: 1.5px solid #B3B3B3;
-  border-radius: 8px;
-  outline: none;
-  background-color: #FFF;
-  color: #230F32;
-  font-family: 'Inter', sans-serif;
-  box-sizing: border-box;
-}
-.login-button {
   width: 100%;
   padding: 14px;
   background-color: #32A4A8;
@@ -274,106 +154,18 @@
   font-weight: 500;
   cursor: pointer;
 }
-.login-button:hover {
+
+.finalize-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.finalize-button:hover:not(:disabled) {
   background-color: #289297;
 }
-.close-button {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #230F32;
-  cursor: pointer;
-  background: none;
-  border: none;
-  outline: none;
-}
 
-/***** Modal Styles for Finalize Booking *****/
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-.modal-content {
-  position: relative;
-  background: #fff;
-  padding: 24px;
-  border-radius: 8px;
-  width: 320px;
-  text-align: center;
-}
-.modal-close {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  color: #000;
-}
-.modal-close:hover {
-  opacity: 0.8;
-}
-.confirm-button {
-  margin-top: 16px;
-  padding: 10px 20px;
-  font-size: 14px;
-  border: none;
-  border-radius: 4px;
-  background-color: #2ca4a8;
-  color: #fff;
-  cursor: pointer;
-}
-.confirm-button:hover {
-  background-color: #2ca4a8;
-}
-.modal-message {
-  line-height: 1.6;
-  margin: 12px 0;
-}
-
-/***** Change Form Styling *****/
-.change-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 12px;
-}
-.change-form label {
-  font-size: 14px;
-  text-align: left;
-  color: #230F32;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.change-form input,
-.change-form select {
-  background-color: #fff;
-  color: #230F32;
-  padding: 6px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-/* Attempt to theme the native date picker icon for Chrome/Edge */
-.change-form input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(45%) sepia(53%) saturate(565%) hue-rotate(135deg)
-    brightness(98%) contrast(92%);
-}
-
-/***** Single Phone Input with Integrated Dropdown *****/
-.phone-single-input {
+/***** Phone Field with Flag *****/
+.phone-flag-container {
   position: relative;
   width: 360px;
   height: 61.5px;
@@ -382,49 +174,164 @@
   background: #FFF;
   display: flex;
   align-items: center;
-  padding: 0 14px;
+  padding: 0 12px;
   box-sizing: border-box;
-  cursor: text;
 }
-.phone-single-input input {
+
+.phone-flag-container input {
+  flex: 1;
   border: none;
   outline: none;
-  background: transparent;
-  flex: 1;
-  height: 100%;
   font-size: 16px;
-  font-family: 'Inter', sans-serif;
   color: #230F32;
-  padding: 0;
-  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: transparent;
+  padding-left: 8px;
 }
-.dropdown-arrow {
-  margin-left: 8px;
-  font-size: 14px;
-  color: #999;
+
+.flag-emoji {
+  font-size: 20px;
   cursor: pointer;
+  user-select: none;
 }
-.flag-dropdown {
+
+.flag-dropdown-list {
   position: absolute;
   top: 61.5px;
   left: 0;
-  width: 100%;
+  width: 150px;
   background: #FFF;
   border: 1px solid #B3B3B3;
   border-radius: 8px;
-  list-style: none;
-  margin: 0;
-  padding: 8px 0;
-  box-sizing: border-box;
-  z-index: 999;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-.flag-dropdown li {
-  padding: 10px 14px;
+
+.flag-dropdown-list div {
+  padding: 12px;
   cursor: pointer;
   font-size: 14px;
-  font-family: 'Inter', sans-serif;
   color: #230F32;
 }
-.flag-dropdown li:hover {
-  background: #f1f1f1;
+
+.flag-dropdown-list div:hover {
+  background-color: #f5f5f5;
+}
+
+/***** Expired Modal *****/
+.expired-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.expired-modal {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.expired-modal h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #230F32;
+}
+
+.expired-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #32A4A8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+}
+
+/***** Logout Modal *****/
+.logout-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.logout-modal {
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.logout-modal-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.logout-modal-message {
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.logout-input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border: 1.5px solid #B3B3B3;
+  border-radius: 8px;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+  background-color: #FFF;
+  color: #230F32;
+}
+
+.logout-submit {
+  width: 100%;
+  padding: 14px;
+  background-color: #32A4A8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.logout-submit:hover {
+  background-color: #289297;
+}
+
+.close-logout-modal {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #230F32;
 }
